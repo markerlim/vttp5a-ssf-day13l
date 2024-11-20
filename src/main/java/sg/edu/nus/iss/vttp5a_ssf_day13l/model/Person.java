@@ -5,12 +5,14 @@ import java.util.UUID;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -44,12 +46,24 @@ public class Person {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
-    public Person(String firstName, String lastName, String email, Integer salary, Date dob) {
+    // reg ex: 8|9 follow by 7 digits (must be between 0 and 9)
+    @Pattern( regexp = "(8|9)[0-9]{7}", message = "Phone number must start with 8 or 9 follow by 7 digits")
+    private String telephone;
+
+    // 111111 - 999999
+    @Digits(fraction = 0, integer = 6, message = "Postal code must be 6 digits")
+    @Min(value = 111111, message = "Postal Code starts from 111111")
+    @Max(value = 999999, message = "Postal Code cannot exceed 999999")
+    private Integer postalCode;
+
+    public Person(String firstName, String lastName, String email, Integer salary, Date dob, String telephone, Integer postalCode) {
         this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.salary = salary;
         this.dob = dob;
+        this.telephone = telephone;
+        this.postalCode = postalCode;
     }
 }

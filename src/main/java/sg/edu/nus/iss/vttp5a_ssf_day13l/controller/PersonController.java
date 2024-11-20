@@ -45,7 +45,7 @@ public class PersonController {
         if (result.hasErrors())
             return "personcreate";
 
-        Person p = new Person(person.getFirstName(), person.getLastName(), person.getEmail(), person.getSalary(), person.getDob());
+        Person p = new Person(person.getFirstName(), person.getLastName(), person.getEmail(), person.getSalary(), person.getDob(), person.getTelephone(), person.getPostalCode());
         
         personService.create(p);
 

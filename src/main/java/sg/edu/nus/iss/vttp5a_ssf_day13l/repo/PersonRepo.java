@@ -21,7 +21,7 @@ public class PersonRepo {
         String birthDate = "1988-12-01";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date birthday = sdf.parse(birthDate);
-        persons.add(new Person("Daniel", "Loo", "danielloo@ial.edu.sg", 12000, birthday));
+        persons.add(new Person("Daniel", "Loo", "danielloo@ial.edu.sg", 12000, birthday, "97345567", 123456));
     }
 
     public List<Person> findAll() {
