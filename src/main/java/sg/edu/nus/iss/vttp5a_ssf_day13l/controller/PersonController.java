@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import sg.edu.nus.iss.vttp5a_ssf_day13l.model.Person;
 import sg.edu.nus.iss.vttp5a_ssf_day13l.service.PersonService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -27,4 +29,12 @@ public class PersonController {
         model.addAttribute("persons", persons);
         return "personlist";
     }
+
+    @GetMapping(path = "/create")
+    public String createForm(Model model) {
+        Person p = new Person();
+        model.addAttribute("person", p);
+        return "personcreate";
+    }
+    
 }

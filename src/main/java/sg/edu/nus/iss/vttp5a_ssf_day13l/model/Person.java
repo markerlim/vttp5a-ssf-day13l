@@ -45,11 +45,12 @@ public class Person {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
-    public Person(String firstName, String lastName, String email, Integer salary) {
+    public Person(String firstName, String lastName, String email, Integer salary, Date dob) {
         this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.salary = salary;
+        this.dob = dob;
     }
 }
