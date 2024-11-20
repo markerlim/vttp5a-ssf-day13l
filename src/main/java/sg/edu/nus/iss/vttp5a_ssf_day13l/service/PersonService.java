@@ -18,6 +18,9 @@ public class PersonService {
         return personRepo.findAll();
     }
 
+    public Person findById(String personId) {
+        return personRepo.findById(personId);
+    }
     public Boolean create(Person person) {
         return personRepo.create(person);
     }

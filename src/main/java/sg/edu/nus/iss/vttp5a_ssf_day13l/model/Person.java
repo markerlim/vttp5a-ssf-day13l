@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Person {
 
-    @NotNull(message = "id must be auto generated")
+    // @NotNull(message = "id must be auto generated")
     private String id;
 
     @NotEmpty(message = "First Name is mandatory")
@@ -30,7 +30,7 @@ public class Person {
     private String firstName;
 
     @NotEmpty(message = "Last Name is mandatory")
-    @Size(min = 5, max = 60, message = "Last Name must be between 5 to 60 characters")
+    @Size(min = 2, max = 60, message = "Last Name must be between 5 to 60 characters")
     private String lastName;
 
     @Min(value = 1500, message = "Minimum salary starts from 1500")
