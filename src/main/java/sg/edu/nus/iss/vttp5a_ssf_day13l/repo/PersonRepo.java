@@ -52,6 +52,8 @@ public class PersonRepo {
     public Boolean update(Person person) {
         List<Person> filteredPerson = persons.stream().filter(p -> p.getId().equals(person.getId())).collect(Collectors.toList());
 
+        // System.out.println(filteredPerson.size());
+
         if (filteredPerson.size() > 0) {
             persons.remove(filteredPerson.getFirst());
             persons.add(person);
